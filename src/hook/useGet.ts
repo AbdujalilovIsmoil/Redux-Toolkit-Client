@@ -1,7 +1,11 @@
 import { get } from "lodash";
 import { api } from "services";
-import { typeUseGet } from "ts/types";
 import { useQuery } from "@tanstack/react-query";
+
+type typeUseGet = {
+  path: string;
+  queryKey: string;
+};
 
 const useGet = ({ path = "/", queryKey }: typeUseGet) => {
   const { data } = useQuery({

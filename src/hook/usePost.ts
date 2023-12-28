@@ -2,20 +2,20 @@ import { get } from "lodash";
 import { api } from "services";
 import { useMutation } from "@tanstack/react-query";
 
-type Put = {
+type typeUsePost = {
   path: string;
-  onError: (data: any) => void;
-  onSuccess: (data: any) => void;
+  onError: (e: any) => void;
+  onSuccess: (e: any) => void;
 };
 
-const usePut = ({
+const usePost = ({
   path = "",
   onError = () => {},
   onSuccess = () => {},
-}: Put) => {
+}: typeUsePost) => {
   const response = useMutation({
-    mutationFn: (id: string) => {
-      return api.put(`${path}/${id}`).then((response) => {
+    mutationFn: (data: any) => {
+      return api.post(path, data).then((response) => {
         return get(response, "data");
       });
     },
@@ -25,4 +25,4 @@ const usePut = ({
   return response;
 };
 
-export default usePut;
+export default usePost;

@@ -1,16 +1,21 @@
 import { get } from "lodash";
 import { api } from "services";
-import { typeUsePost } from "ts/types";
 import { useMutation } from "@tanstack/react-query";
 
-const usePost = ({
+type typeUseDelete = {
+  path: string;
+  onError: (e: any) => void;
+  onSuccess: (e: any) => void;
+};
+
+const useDelete = ({
   path = "",
   onError = () => {},
   onSuccess = () => {},
-}: typeUsePost) => {
+}: typeUseDelete) => {
   const response = useMutation({
-    mutationFn: (data: any) => {
-      return api.post(path, data).then((response) => {
+    mutationFn: (id: string) => {
+      return api.delete(`${path}/${id}`).then((response) => {
         return get(response, "data");
       });
     },
@@ -20,4 +25,4 @@ const usePost = ({
   return response;
 };
 
-export default usePost;
+export default useDelete;

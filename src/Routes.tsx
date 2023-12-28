@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "components/layouts";
 
-const index = () => {
+const Routes = () => {
   return (
     <>
       <Header />
@@ -11,4 +11,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Routes;

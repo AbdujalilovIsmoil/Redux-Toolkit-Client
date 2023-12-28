@@ -1,16 +1,21 @@
 import { get } from "lodash";
 import { api } from "services";
-import { typeUseDelete } from "ts/types";
 import { useMutation } from "@tanstack/react-query";
 
-const useDelete = ({
+type usePutTypes = {
+  path: string;
+  onError: (data: any) => void;
+  onSuccess: (data: any) => void;
+};
+
+const usePut = ({
   path = "",
   onError = () => {},
   onSuccess = () => {},
-}: typeUseDelete) => {
+}: usePutTypes) => {
   const response = useMutation({
     mutationFn: (id: string) => {
-      return api.delete(`${path}/${id}`).then((response) => {
+      return api.put(`${path}/${id}`).then((response) => {
         return get(response, "data");
       });
     },
@@ -20,4 +25,4 @@ const useDelete = ({
   return response;
 };
 
-export default useDelete;
+export default usePut;
