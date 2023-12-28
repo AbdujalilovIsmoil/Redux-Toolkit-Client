@@ -1,13 +1,18 @@
 import { get } from "lodash";
 import { api } from "services";
-import { typeUseUpdate } from "ts/types";
 import { useMutation } from "@tanstack/react-query";
+
+type Put = {
+  path: string;
+  onError: (data: any) => void;
+  onSuccess: (data: any) => void;
+};
 
 const usePut = ({
   path = "",
   onError = () => {},
   onSuccess = () => {},
-}: typeUseUpdate) => {
+}: Put) => {
   const response = useMutation({
     mutationFn: (id: string) => {
       return api.put(`${path}/${id}`).then((response) => {

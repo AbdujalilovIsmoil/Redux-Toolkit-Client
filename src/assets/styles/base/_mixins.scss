@@ -90,45 +90,38 @@
 
 // Media Queries
 
-@mixin mediaQueries($query) {
-  @if $sm == $query {
-    @media only screen and (max-width: $sm) {
-      @content;
-    }
+@mixin sm {
+  @media only screen and (max-width: $sm) {
+    @content;
   }
-  @if $md == $query {
-    @media only screen and (max-width: $md) {
-      @content;
-    }
+}
+
+@mixin md {
+  @media only screen and (max-width: $md) {
+    @content;
   }
-  @if $lg == $query {
-    @media only screen and (max-width: $lg) {
-      @content;
-    }
+}
+
+@mixin lg {
+  @media only screen and (max-width: $lg) {
+    @content;
   }
-  @if $xl == $query {
-    @media only screen and (max-width: $xl) {
-      @content;
-    }
+}
+
+@mixin xl {
+  @media only screen and (max-width: $xl) {
+    @content;
   }
-  @if $xxl == $query {
-    @media only screen and (max-width: $xxl) {
-      @content;
-    }
+}
+
+@mixin xxl {
+  @media only screen and (max-width: $xxl) {
+    @content;
   }
-  @if $sm !=
-    $query and
-    $md !=
-    $query and
-    $lg !=
-    $query and
-    $query !=
-    $xl and
-    $query !=
-    $xxl
-  {
-    @media only screen and (max-width: $query) {
-      @content;
-    }
+}
+
+@mixin defaultMediaQuery($query) {
+  @media only screen and (max-width: $query) {
+    @content;
   }
 }

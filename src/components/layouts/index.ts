@@ -1,5 +1,4 @@
-import Header from "./header";
-import Footer from "./footer";
-import Loader from "./loader";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
-export { Header, Footer, Loader };
+export { Header, Footer };
