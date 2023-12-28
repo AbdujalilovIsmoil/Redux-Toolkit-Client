@@ -1,5 +1,12 @@
+import { Helmet } from "components";
+
 const Login = () => {
-  return <h1>Login</h1>;
+  return (
+    <section>
+      <Helmet title="Login" />
+      <h1>Login</h1>
+    </section>
+  );
 };
 
 export default Login;

@@ -1,5 +1,11 @@
+import { Helmet } from "components";
+
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <section>
+      <Helmet title="Home" />
+    </section>
+  );
 };
 
 export default Home;

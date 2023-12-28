@@ -1,5 +1,12 @@
+import { Helmet } from "components";
+
 const Error = () => {
-  return <h1>Error</h1>;
+  return (
+    <section>
+      <Helmet title="Error" />
+      <h1>Error</h1>
+    </section>
+  );
 };
 
 export default Error;
